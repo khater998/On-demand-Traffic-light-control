@@ -1,0 +1,1409 @@
+
+On-demand Traffic light control.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000006ee  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000000c  00800060  000006ee  00000782  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000002  0080006c  0080006c  0000078e  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000078e  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000007c0  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000190  00000000  00000000  000007fc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000212c  00000000  00000000  0000098c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000ad1  00000000  00000000  00002ab8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00001195  00000000  00000000  00003589  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000004ec  00000000  00000000  00004720  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000007ec  00000000  00000000  00004c0c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00001203  00000000  00000000  000053f8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000140  00000000  00000000  000065fb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 a8 00 	jmp	0x150	; 0x150 <__vector_1>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ee ee       	ldi	r30, 0xEE	; 238
+  68:	f6 e0       	ldi	r31, 0x06	; 6
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	ac 36       	cpi	r26, 0x6C	; 108
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	20 e0       	ldi	r18, 0x00	; 0
+  78:	ac e6       	ldi	r26, 0x6C	; 108
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	ae 36       	cpi	r26, 0x6E	; 110
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 f1 01 	call	0x3e2	; 0x3e2 <main>
+  8a:	0c 94 75 03 	jmp	0x6ea	; 0x6ea <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <pedesterianMode>:
+}
+
+void pedesterianMode()
+{
+	/* if interrupt happens when Cars RED is ON */
+	if (cars_red_flag == 1)
+  92:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <cars_red_flag>
+  96:	81 30       	cpi	r24, 0x01	; 1
+  98:	91 f4       	brne	.+36     	; 0xbe <pedesterianMode+0x2c>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  9a:	2f e3       	ldi	r18, 0x3F	; 63
+  9c:	82 e4       	ldi	r24, 0x42	; 66
+  9e:	9f e0       	ldi	r25, 0x0F	; 15
+  a0:	21 50       	subi	r18, 0x01	; 1
+  a2:	80 40       	sbci	r24, 0x00	; 0
+  a4:	90 40       	sbci	r25, 0x00	; 0
+  a6:	e1 f7       	brne	.-8      	; 0xa0 <pedesterianMode+0xe>
+  a8:	00 c0       	rjmp	.+0      	; 0xaa <pedesterianMode+0x18>
+  aa:	00 00       	nop
+	{	
+		_delay_ms(5000);
+		LED_off(&cars_red_led);
+  ac:	86 e6       	ldi	r24, 0x66	; 102
+  ae:	90 e0       	ldi	r25, 0x00	; 0
+  b0:	0e 94 9b 01 	call	0x336	; 0x336 <LED_off>
+		LED_off(&pedestrian_green_led);
+  b4:	84 e6       	ldi	r24, 0x64	; 100
+  b6:	90 e0       	ldi	r25, 0x00	; 0
+  b8:	0e 94 9b 01 	call	0x336	; 0x336 <LED_off>
+  bc:	28 c0       	rjmp	.+80     	; 0x10e <pedesterianMode+0x7c>
+	}
+	else /* interrupt happens when Cars GREEN or YELLOW are ON*/
+	{
+		LED_off(&cars_green_led);
+  be:	8a e6       	ldi	r24, 0x6A	; 106
+  c0:	90 e0       	ldi	r25, 0x00	; 0
+  c2:	0e 94 9b 01 	call	0x336	; 0x336 <LED_off>
+		LED_off(&pedestrian_red_led);
+  c6:	80 e6       	ldi	r24, 0x60	; 96
+  c8:	90 e0       	ldi	r25, 0x00	; 0
+  ca:	0e 94 9b 01 	call	0x336	; 0x336 <LED_off>
+			
+		/* BLINK both Cars && Pedestrian YELLOWS for 5 seconds*/
+		blink_two_yellows(&cars_yellow_led,&pedestrian_yellow_led,5);
+  ce:	45 e0       	ldi	r20, 0x05	; 5
+  d0:	62 e6       	ldi	r22, 0x62	; 98
+  d2:	70 e0       	ldi	r23, 0x00	; 0
+  d4:	88 e6       	ldi	r24, 0x68	; 104
+  d6:	90 e0       	ldi	r25, 0x00	; 0
+  d8:	0e 94 af 01 	call	0x35e	; 0x35e <blink_two_yellows>
+		
+		/* then, SET cars RED && Pedestrian GREEN to ON state for 5 seconds*/
+		LED_on(&pedestrian_green_led);
+  dc:	84 e6       	ldi	r24, 0x64	; 100
+  de:	90 e0       	ldi	r25, 0x00	; 0
+  e0:	0e 94 87 01 	call	0x30e	; 0x30e <LED_on>
+		LED_on(&cars_red_led);
+  e4:	86 e6       	ldi	r24, 0x66	; 102
+  e6:	90 e0       	ldi	r25, 0x00	; 0
+  e8:	0e 94 87 01 	call	0x30e	; 0x30e <LED_on>
+  ec:	2f e3       	ldi	r18, 0x3F	; 63
+  ee:	82 e4       	ldi	r24, 0x42	; 66
+  f0:	9f e0       	ldi	r25, 0x0F	; 15
+  f2:	21 50       	subi	r18, 0x01	; 1
+  f4:	80 40       	sbci	r24, 0x00	; 0
+  f6:	90 40       	sbci	r25, 0x00	; 0
+  f8:	e1 f7       	brne	.-8      	; 0xf2 <pedesterianMode+0x60>
+  fa:	00 c0       	rjmp	.+0      	; 0xfc <pedesterianMode+0x6a>
+  fc:	00 00       	nop
+		_delay_ms(5000);
+		LED_off(&pedestrian_green_led);
+  fe:	84 e6       	ldi	r24, 0x64	; 100
+ 100:	90 e0       	ldi	r25, 0x00	; 0
+ 102:	0e 94 9b 01 	call	0x336	; 0x336 <LED_off>
+		LED_off(&cars_red_led);
+ 106:	86 e6       	ldi	r24, 0x66	; 102
+ 108:	90 e0       	ldi	r25, 0x00	; 0
+ 10a:	0e 94 9b 01 	call	0x336	; 0x336 <LED_off>
+	}
+	
+	/* for both conditions */ 
+	/* BLINK both Cars && Pedestrian YELLOWS for 5 seconds */
+	blink_two_yellows(&cars_yellow_led,&pedestrian_yellow_led,5);
+ 10e:	45 e0       	ldi	r20, 0x05	; 5
+ 110:	62 e6       	ldi	r22, 0x62	; 98
+ 112:	70 e0       	ldi	r23, 0x00	; 0
+ 114:	88 e6       	ldi	r24, 0x68	; 104
+ 116:	90 e0       	ldi	r25, 0x00	; 0
+ 118:	0e 94 af 01 	call	0x35e	; 0x35e <blink_two_yellows>
+	
+	/* then, SET Cars GREEN && pedestrian RED to ON state for 5 seconds */
+	LED_on(&pedestrian_red_led);
+ 11c:	80 e6       	ldi	r24, 0x60	; 96
+ 11e:	90 e0       	ldi	r25, 0x00	; 0
+ 120:	0e 94 87 01 	call	0x30e	; 0x30e <LED_on>
+	LED_on(&cars_green_led);
+ 124:	8a e6       	ldi	r24, 0x6A	; 106
+ 126:	90 e0       	ldi	r25, 0x00	; 0
+ 128:	0e 94 87 01 	call	0x30e	; 0x30e <LED_on>
+ 12c:	2f e3       	ldi	r18, 0x3F	; 63
+ 12e:	82 e4       	ldi	r24, 0x42	; 66
+ 130:	9f e0       	ldi	r25, 0x0F	; 15
+ 132:	21 50       	subi	r18, 0x01	; 1
+ 134:	80 40       	sbci	r24, 0x00	; 0
+ 136:	90 40       	sbci	r25, 0x00	; 0
+ 138:	e1 f7       	brne	.-8      	; 0x132 <pedesterianMode+0xa0>
+ 13a:	00 c0       	rjmp	.+0      	; 0x13c <pedesterianMode+0xaa>
+ 13c:	00 00       	nop
+	_delay_ms(5000);
+	LED_off(&pedestrian_red_led);
+ 13e:	80 e6       	ldi	r24, 0x60	; 96
+ 140:	90 e0       	ldi	r25, 0x00	; 0
+ 142:	0e 94 9b 01 	call	0x336	; 0x336 <LED_off>
+	LED_off(&cars_green_led);	
+ 146:	8a e6       	ldi	r24, 0x6A	; 106
+ 148:	90 e0       	ldi	r25, 0x00	; 0
+ 14a:	0e 94 9b 01 	call	0x336	; 0x336 <LED_off>
+ 14e:	08 95       	ret
+
+00000150 <__vector_1>:
+}
+
+
+
+ISR(INT0_vect)
+{
+ 150:	1f 92       	push	r1
+ 152:	0f 92       	push	r0
+ 154:	0f b6       	in	r0, 0x3f	; 63
+ 156:	0f 92       	push	r0
+ 158:	11 24       	eor	r1, r1
+ 15a:	2f 93       	push	r18
+ 15c:	3f 93       	push	r19
+ 15e:	4f 93       	push	r20
+ 160:	5f 93       	push	r21
+ 162:	6f 93       	push	r22
+ 164:	7f 93       	push	r23
+ 166:	8f 93       	push	r24
+ 168:	9f 93       	push	r25
+ 16a:	af 93       	push	r26
+ 16c:	bf 93       	push	r27
+ 16e:	ef 93       	push	r30
+ 170:	ff 93       	push	r31
+	/* Disable interrupt 0 till ISR is executed */
+	EXT_INT0_DISABLE();
+ 172:	8b b7       	in	r24, 0x3b	; 59
+ 174:	8f 7b       	andi	r24, 0xBF	; 191
+ 176:	8b bf       	out	0x3b, r24	; 59
+
+	pedesterianMode();
+ 178:	0e 94 49 00 	call	0x92	; 0x92 <pedesterianMode>
+	EXT_INT0_ENABLE();
+ 17c:	8b b7       	in	r24, 0x3b	; 59
+ 17e:	80 64       	ori	r24, 0x40	; 64
+ 180:	8b bf       	out	0x3b, r24	; 59
+	interrupt_triggered = 1;
+ 182:	81 e0       	ldi	r24, 0x01	; 1
+ 184:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <__data_end>
+}
+ 188:	ff 91       	pop	r31
+ 18a:	ef 91       	pop	r30
+ 18c:	bf 91       	pop	r27
+ 18e:	af 91       	pop	r26
+ 190:	9f 91       	pop	r25
+ 192:	8f 91       	pop	r24
+ 194:	7f 91       	pop	r23
+ 196:	6f 91       	pop	r22
+ 198:	5f 91       	pop	r21
+ 19a:	4f 91       	pop	r20
+ 19c:	3f 91       	pop	r19
+ 19e:	2f 91       	pop	r18
+ 1a0:	0f 90       	pop	r0
+ 1a2:	0f be       	out	0x3f, r0	; 63
+ 1a4:	0f 90       	pop	r0
+ 1a6:	1f 90       	pop	r1
+ 1a8:	18 95       	reti
+
+000001aa <BUTTON_read>:
+	btntest.pinNumber = 10;
+	expected_error = BUTTON_DIO_error;
+	actual_error = BUTTON_init(&btntest);
+	
+	
+}
+ 1aa:	ab 01       	movw	r20, r22
+ 1ac:	fc 01       	movw	r30, r24
+ 1ae:	61 81       	ldd	r22, Z+1	; 0x01
+ 1b0:	80 81       	ld	r24, Z
+ 1b2:	0e 94 f4 02 	call	0x5e8	; 0x5e8 <DIO_read>
+ 1b6:	81 11       	cpse	r24, r1
+ 1b8:	81 e0       	ldi	r24, 0x01	; 1
+ 1ba:	08 95       	ret
+
+000001bc <BUTTON_read_test>:
+
+/*************************************************************************************************/
+/*******************                  BUTTON_read_test()          ********************************/
+/*************************************************************************************************/
+void BUTTON_read_test()
+{
+ 1bc:	cf 93       	push	r28
+ 1be:	df 93       	push	r29
+ 1c0:	00 d0       	rcall	.+0      	; 0x1c2 <BUTTON_read_test+0x6>
+ 1c2:	00 d0       	rcall	.+0      	; 0x1c4 <BUTTON_read_test+0x8>
+ 1c4:	1f 92       	push	r1
+ 1c6:	cd b7       	in	r28, 0x3d	; 61
+ 1c8:	de b7       	in	r29, 0x3e	; 62
+	volatile EN_BUTTON_error actual_error;
+	
+	uint8_t state;
+	
+	/* create a BUTTON object to test on */
+	button_t btntest = {.portNumber = PORT_A, .pinNumber = 5};
+ 1ca:	81 e4       	ldi	r24, 0x41	; 65
+ 1cc:	8c 83       	std	Y+4, r24	; 0x04
+ 1ce:	85 e0       	ldi	r24, 0x05	; 5
+ 1d0:	8d 83       	std	Y+5, r24	; 0x05
+	
+	/* test case 1: valid data */
+	expected_error = BUTTON_ok;
+ 1d2:	19 82       	std	Y+1, r1	; 0x01
+	actual_error = BUTTON_read(&btntest, &state);
+ 1d4:	be 01       	movw	r22, r28
+ 1d6:	6d 5f       	subi	r22, 0xFD	; 253
+ 1d8:	7f 4f       	sbci	r23, 0xFF	; 255
+ 1da:	ce 01       	movw	r24, r28
+ 1dc:	04 96       	adiw	r24, 0x04	; 4
+ 1de:	0e 94 d5 00 	call	0x1aa	; 0x1aa <BUTTON_read>
+ 1e2:	8a 83       	std	Y+2, r24	; 0x02
+	
+	/* test case 2: invalid pin Number */
+	btntest.pinNumber = 10;
+ 1e4:	8a e0       	ldi	r24, 0x0A	; 10
+ 1e6:	8d 83       	std	Y+5, r24	; 0x05
+	expected_error = BUTTON_DIO_error;
+ 1e8:	81 e0       	ldi	r24, 0x01	; 1
+ 1ea:	89 83       	std	Y+1, r24	; 0x01
+	actual_error = BUTTON_read(&btntest, &state);
+ 1ec:	be 01       	movw	r22, r28
+ 1ee:	6d 5f       	subi	r22, 0xFD	; 253
+ 1f0:	7f 4f       	sbci	r23, 0xFF	; 255
+ 1f2:	ce 01       	movw	r24, r28
+ 1f4:	04 96       	adiw	r24, 0x04	; 4
+ 1f6:	0e 94 d5 00 	call	0x1aa	; 0x1aa <BUTTON_read>
+ 1fa:	8a 83       	std	Y+2, r24	; 0x02
+	
+ 1fc:	0f 90       	pop	r0
+ 1fe:	0f 90       	pop	r0
+ 200:	0f 90       	pop	r0
+ 202:	0f 90       	pop	r0
+ 204:	0f 90       	pop	r0
+ 206:	df 91       	pop	r29
+ 208:	cf 91       	pop	r28
+ 20a:	08 95       	ret
+
+0000020c <check_initilization>:
+	}
+	/* it time is up, turn off LED and return */
+	DIO_write(led->portNumber, led->pinNumber, LOW);
+	
+	return error_type;
+}
+ 20c:	cf 93       	push	r28
+ 20e:	df 93       	push	r29
+ 210:	1f 92       	push	r1
+ 212:	cd b7       	in	r28, 0x3d	; 61
+ 214:	de b7       	in	r29, 0x3e	; 62
+ 216:	fc 01       	movw	r30, r24
+ 218:	21 81       	ldd	r18, Z+1	; 0x01
+ 21a:	28 30       	cpi	r18, 0x08	; 8
+ 21c:	10 f4       	brcc	.+4      	; 0x222 <check_initilization+0x16>
+ 21e:	90 e0       	ldi	r25, 0x00	; 0
+ 220:	01 c0       	rjmp	.+2      	; 0x224 <check_initilization+0x18>
+ 222:	91 e0       	ldi	r25, 0x01	; 1
+ 224:	19 82       	std	Y+1, r1	; 0x01
+ 226:	80 81       	ld	r24, Z
+ 228:	82 34       	cpi	r24, 0x42	; 66
+ 22a:	01 f1       	breq	.+64     	; 0x26c <check_initilization+0x60>
+ 22c:	18 f4       	brcc	.+6      	; 0x234 <check_initilization+0x28>
+ 22e:	81 34       	cpi	r24, 0x41	; 65
+ 230:	39 f0       	breq	.+14     	; 0x240 <check_initilization+0x34>
+ 232:	5e c0       	rjmp	.+188    	; 0x2f0 <check_initilization+0xe4>
+ 234:	83 34       	cpi	r24, 0x43	; 67
+ 236:	81 f1       	breq	.+96     	; 0x298 <check_initilization+0x8c>
+ 238:	84 34       	cpi	r24, 0x44	; 68
+ 23a:	09 f4       	brne	.+2      	; 0x23e <check_initilization+0x32>
+ 23c:	43 c0       	rjmp	.+134    	; 0x2c4 <check_initilization+0xb8>
+ 23e:	58 c0       	rjmp	.+176    	; 0x2f0 <check_initilization+0xe4>
+ 240:	8a b3       	in	r24, 0x1a	; 26
+ 242:	41 e0       	ldi	r20, 0x01	; 1
+ 244:	50 e0       	ldi	r21, 0x00	; 0
+ 246:	ba 01       	movw	r22, r20
+ 248:	02 2e       	mov	r0, r18
+ 24a:	02 c0       	rjmp	.+4      	; 0x250 <check_initilization+0x44>
+ 24c:	66 0f       	add	r22, r22
+ 24e:	77 1f       	adc	r23, r23
+ 250:	0a 94       	dec	r0
+ 252:	e2 f7       	brpl	.-8      	; 0x24c <check_initilization+0x40>
+ 254:	48 2f       	mov	r20, r24
+ 256:	50 e0       	ldi	r21, 0x00	; 0
+ 258:	46 23       	and	r20, r22
+ 25a:	57 23       	and	r21, r23
+ 25c:	ba 01       	movw	r22, r20
+ 25e:	02 c0       	rjmp	.+4      	; 0x264 <check_initilization+0x58>
+ 260:	75 95       	asr	r23
+ 262:	67 95       	ror	r22
+ 264:	2a 95       	dec	r18
+ 266:	e2 f7       	brpl	.-8      	; 0x260 <check_initilization+0x54>
+ 268:	69 83       	std	Y+1, r22	; 0x01
+ 26a:	43 c0       	rjmp	.+134    	; 0x2f2 <check_initilization+0xe6>
+ 26c:	87 b3       	in	r24, 0x17	; 23
+ 26e:	41 e0       	ldi	r20, 0x01	; 1
+ 270:	50 e0       	ldi	r21, 0x00	; 0
+ 272:	ba 01       	movw	r22, r20
+ 274:	02 2e       	mov	r0, r18
+ 276:	02 c0       	rjmp	.+4      	; 0x27c <check_initilization+0x70>
+ 278:	66 0f       	add	r22, r22
+ 27a:	77 1f       	adc	r23, r23
+ 27c:	0a 94       	dec	r0
+ 27e:	e2 f7       	brpl	.-8      	; 0x278 <check_initilization+0x6c>
+ 280:	48 2f       	mov	r20, r24
+ 282:	50 e0       	ldi	r21, 0x00	; 0
+ 284:	46 23       	and	r20, r22
+ 286:	57 23       	and	r21, r23
+ 288:	ba 01       	movw	r22, r20
+ 28a:	02 c0       	rjmp	.+4      	; 0x290 <check_initilization+0x84>
+ 28c:	75 95       	asr	r23
+ 28e:	67 95       	ror	r22
+ 290:	2a 95       	dec	r18
+ 292:	e2 f7       	brpl	.-8      	; 0x28c <check_initilization+0x80>
+ 294:	69 83       	std	Y+1, r22	; 0x01
+ 296:	2d c0       	rjmp	.+90     	; 0x2f2 <check_initilization+0xe6>
+ 298:	84 b3       	in	r24, 0x14	; 20
+ 29a:	41 e0       	ldi	r20, 0x01	; 1
+ 29c:	50 e0       	ldi	r21, 0x00	; 0
+ 29e:	ba 01       	movw	r22, r20
+ 2a0:	02 2e       	mov	r0, r18
+ 2a2:	02 c0       	rjmp	.+4      	; 0x2a8 <check_initilization+0x9c>
+ 2a4:	66 0f       	add	r22, r22
+ 2a6:	77 1f       	adc	r23, r23
+ 2a8:	0a 94       	dec	r0
+ 2aa:	e2 f7       	brpl	.-8      	; 0x2a4 <check_initilization+0x98>
+ 2ac:	48 2f       	mov	r20, r24
+ 2ae:	50 e0       	ldi	r21, 0x00	; 0
+ 2b0:	46 23       	and	r20, r22
+ 2b2:	57 23       	and	r21, r23
+ 2b4:	ba 01       	movw	r22, r20
+ 2b6:	02 c0       	rjmp	.+4      	; 0x2bc <check_initilization+0xb0>
+ 2b8:	75 95       	asr	r23
+ 2ba:	67 95       	ror	r22
+ 2bc:	2a 95       	dec	r18
+ 2be:	e2 f7       	brpl	.-8      	; 0x2b8 <check_initilization+0xac>
+ 2c0:	69 83       	std	Y+1, r22	; 0x01
+ 2c2:	17 c0       	rjmp	.+46     	; 0x2f2 <check_initilization+0xe6>
+ 2c4:	81 b3       	in	r24, 0x11	; 17
+ 2c6:	41 e0       	ldi	r20, 0x01	; 1
+ 2c8:	50 e0       	ldi	r21, 0x00	; 0
+ 2ca:	ba 01       	movw	r22, r20
+ 2cc:	02 2e       	mov	r0, r18
+ 2ce:	02 c0       	rjmp	.+4      	; 0x2d4 <check_initilization+0xc8>
+ 2d0:	66 0f       	add	r22, r22
+ 2d2:	77 1f       	adc	r23, r23
+ 2d4:	0a 94       	dec	r0
+ 2d6:	e2 f7       	brpl	.-8      	; 0x2d0 <check_initilization+0xc4>
+ 2d8:	48 2f       	mov	r20, r24
+ 2da:	50 e0       	ldi	r21, 0x00	; 0
+ 2dc:	46 23       	and	r20, r22
+ 2de:	57 23       	and	r21, r23
+ 2e0:	ba 01       	movw	r22, r20
+ 2e2:	02 c0       	rjmp	.+4      	; 0x2e8 <check_initilization+0xdc>
+ 2e4:	75 95       	asr	r23
+ 2e6:	67 95       	ror	r22
+ 2e8:	2a 95       	dec	r18
+ 2ea:	e2 f7       	brpl	.-8      	; 0x2e4 <check_initilization+0xd8>
+ 2ec:	69 83       	std	Y+1, r22	; 0x01
+ 2ee:	01 c0       	rjmp	.+2      	; 0x2f2 <check_initilization+0xe6>
+ 2f0:	91 e0       	ldi	r25, 0x01	; 1
+ 2f2:	91 11       	cpse	r25, r1
+ 2f4:	05 c0       	rjmp	.+10     	; 0x300 <check_initilization+0xf4>
+ 2f6:	89 81       	ldd	r24, Y+1	; 0x01
+ 2f8:	81 11       	cpse	r24, r1
+ 2fa:	04 c0       	rjmp	.+8      	; 0x304 <check_initilization+0xf8>
+ 2fc:	82 e0       	ldi	r24, 0x02	; 2
+ 2fe:	03 c0       	rjmp	.+6      	; 0x306 <check_initilization+0xfa>
+ 300:	89 2f       	mov	r24, r25
+ 302:	01 c0       	rjmp	.+2      	; 0x306 <check_initilization+0xfa>
+ 304:	89 2f       	mov	r24, r25
+ 306:	0f 90       	pop	r0
+ 308:	df 91       	pop	r29
+ 30a:	cf 91       	pop	r28
+ 30c:	08 95       	ret
+
+0000030e <LED_on>:
+ 30e:	0f 93       	push	r16
+ 310:	1f 93       	push	r17
+ 312:	cf 93       	push	r28
+ 314:	8c 01       	movw	r16, r24
+ 316:	0e 94 06 01 	call	0x20c	; 0x20c <check_initilization>
+ 31a:	c8 2f       	mov	r28, r24
+ 31c:	81 11       	cpse	r24, r1
+ 31e:	06 c0       	rjmp	.+12     	; 0x32c <LED_on+0x1e>
+ 320:	41 e0       	ldi	r20, 0x01	; 1
+ 322:	f8 01       	movw	r30, r16
+ 324:	61 81       	ldd	r22, Z+1	; 0x01
+ 326:	80 81       	ld	r24, Z
+ 328:	0e 94 f4 01 	call	0x3e8	; 0x3e8 <DIO_write>
+ 32c:	8c 2f       	mov	r24, r28
+ 32e:	cf 91       	pop	r28
+ 330:	1f 91       	pop	r17
+ 332:	0f 91       	pop	r16
+ 334:	08 95       	ret
+
+00000336 <LED_off>:
+ 336:	0f 93       	push	r16
+ 338:	1f 93       	push	r17
+ 33a:	cf 93       	push	r28
+ 33c:	8c 01       	movw	r16, r24
+ 33e:	0e 94 06 01 	call	0x20c	; 0x20c <check_initilization>
+ 342:	c8 2f       	mov	r28, r24
+ 344:	81 11       	cpse	r24, r1
+ 346:	06 c0       	rjmp	.+12     	; 0x354 <LED_off+0x1e>
+ 348:	40 e0       	ldi	r20, 0x00	; 0
+ 34a:	f8 01       	movw	r30, r16
+ 34c:	61 81       	ldd	r22, Z+1	; 0x01
+ 34e:	80 81       	ld	r24, Z
+ 350:	0e 94 f4 01 	call	0x3e8	; 0x3e8 <DIO_write>
+ 354:	8c 2f       	mov	r24, r28
+ 356:	cf 91       	pop	r28
+ 358:	1f 91       	pop	r17
+ 35a:	0f 91       	pop	r16
+ 35c:	08 95       	ret
+
+0000035e <blink_two_yellows>:
+/*************************************************************************************************/
+/*******************         blink_two_yellows()          ****************************************/
+/*************************************************************************************************/
+EN_LED_error blink_two_yellows(led_t* led1, led_t* led2, uint8_t time_seconds)
+{
+ 35e:	ef 92       	push	r14
+ 360:	ff 92       	push	r15
+ 362:	0f 93       	push	r16
+ 364:	1f 93       	push	r17
+ 366:	cf 93       	push	r28
+ 368:	df 93       	push	r29
+ 36a:	ec 01       	movw	r28, r24
+ 36c:	8b 01       	movw	r16, r22
+ 36e:	e4 2e       	mov	r14, r20
+	/* create a variable to store the error type  */
+	EN_LED_error error_type = LED_ok;
+	
+	/* check if pin is initialized as OUTPUT before operating */
+	error_type = check_initilization(led1);
+ 370:	0e 94 06 01 	call	0x20c	; 0x20c <check_initilization>
+	/* if there is any error, don't do anything and return */
+	if (error_type != LED_ok)
+ 374:	81 11       	cpse	r24, r1
+ 376:	2e c0       	rjmp	.+92     	; 0x3d4 <blink_two_yellows+0x76>
+		return error_type;
+	
+	/* check if pin is initialized as OUTPUT before operating */
+	error_type = check_initilization(led2);
+ 378:	c8 01       	movw	r24, r16
+ 37a:	0e 94 06 01 	call	0x20c	; 0x20c <check_initilization>
+	/* if there is any error, don't do anything and return */
+	if (error_type != LED_ok)
+ 37e:	81 11       	cpse	r24, r1
+ 380:	29 c0       	rjmp	.+82     	; 0x3d4 <blink_two_yellows+0x76>
+ 382:	f1 2c       	mov	r15, r1
+ 384:	13 c0       	rjmp	.+38     	; 0x3ac <blink_two_yellows+0x4e>
+	
+	/* we will toggle state 2 times a second, so the loop repeate 2*seconds */
+	while (interval < 2*time_seconds)
+	{
+		/* toggle LEDs every 0.5 seconds && increase iterator variable*/
+		DIO_toggle(led1->portNumber, led1->pinNumber);
+ 386:	69 81       	ldd	r22, Y+1	; 0x01
+ 388:	88 81       	ld	r24, Y
+ 38a:	0e 94 a0 02 	call	0x540	; 0x540 <DIO_toggle>
+		DIO_toggle(led2->portNumber, led2->pinNumber);
+ 38e:	f8 01       	movw	r30, r16
+ 390:	61 81       	ldd	r22, Z+1	; 0x01
+ 392:	80 81       	ld	r24, Z
+ 394:	0e 94 a0 02 	call	0x540	; 0x540 <DIO_toggle>
+ 398:	ff e9       	ldi	r31, 0x9F	; 159
+ 39a:	26 e8       	ldi	r18, 0x86	; 134
+ 39c:	81 e0       	ldi	r24, 0x01	; 1
+ 39e:	f1 50       	subi	r31, 0x01	; 1
+ 3a0:	20 40       	sbci	r18, 0x00	; 0
+ 3a2:	80 40       	sbci	r24, 0x00	; 0
+ 3a4:	e1 f7       	brne	.-8      	; 0x39e <blink_two_yellows+0x40>
+ 3a6:	00 c0       	rjmp	.+0      	; 0x3a8 <blink_two_yellows+0x4a>
+ 3a8:	00 00       	nop
+		_delay_ms(500);
+		interval++;
+ 3aa:	f3 94       	inc	r15
+		
+	/* create an iterator variable for the while loop */
+	uint8_t interval  = 0;
+	
+	/* we will toggle state 2 times a second, so the loop repeate 2*seconds */
+	while (interval < 2*time_seconds)
+ 3ac:	2f 2d       	mov	r18, r15
+ 3ae:	30 e0       	ldi	r19, 0x00	; 0
+ 3b0:	8e 2d       	mov	r24, r14
+ 3b2:	90 e0       	ldi	r25, 0x00	; 0
+ 3b4:	88 0f       	add	r24, r24
+ 3b6:	99 1f       	adc	r25, r25
+ 3b8:	28 17       	cp	r18, r24
+ 3ba:	39 07       	cpc	r19, r25
+ 3bc:	24 f3       	brlt	.-56     	; 0x386 <blink_two_yellows+0x28>
+		DIO_toggle(led2->portNumber, led2->pinNumber);
+		_delay_ms(500);
+		interval++;
+	}
+	/* after finishing, turn off LEDs and return */
+	DIO_write(led1->portNumber, led1->pinNumber, LOW);
+ 3be:	40 e0       	ldi	r20, 0x00	; 0
+ 3c0:	69 81       	ldd	r22, Y+1	; 0x01
+ 3c2:	88 81       	ld	r24, Y
+ 3c4:	0e 94 f4 01 	call	0x3e8	; 0x3e8 <DIO_write>
+	DIO_write(led2->portNumber, led2->pinNumber, LOW);
+ 3c8:	40 e0       	ldi	r20, 0x00	; 0
+ 3ca:	f8 01       	movw	r30, r16
+ 3cc:	61 81       	ldd	r22, Z+1	; 0x01
+ 3ce:	80 81       	ld	r24, Z
+ 3d0:	0e 94 f4 01 	call	0x3e8	; 0x3e8 <DIO_write>
+	
+}
+ 3d4:	df 91       	pop	r29
+ 3d6:	cf 91       	pop	r28
+ 3d8:	1f 91       	pop	r17
+ 3da:	0f 91       	pop	r16
+ 3dc:	ff 90       	pop	r15
+ 3de:	ef 90       	pop	r14
+ 3e0:	08 95       	ret
+
+000003e2 <main>:
+	//blink_two_yellows_test();
+	//LED_blink_interruptCheck_test();
+	//leds_on_temporary_interruptCheck_test();
+	
+	 //BUTTON_init_test();
+	BUTTON_read_test();
+ 3e2:	0e 94 de 00 	call	0x1bc	; 0x1bc <BUTTON_read_test>
+ 3e6:	ff cf       	rjmp	.-2      	; 0x3e6 <main+0x4>
+
+000003e8 <DIO_write>:
+}
+/*************************************************************************************************/
+/*******************                 DIO_write()          ****************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_write(volatile uint8_t portNumber, volatile uint8_t pinNumber, uint8_t state) 			// set a pin as HIGH OR LOW
+{
+ 3e8:	cf 93       	push	r28
+ 3ea:	df 93       	push	r29
+ 3ec:	00 d0       	rcall	.+0      	; 0x3ee <DIO_write+0x6>
+ 3ee:	cd b7       	in	r28, 0x3d	; 61
+ 3f0:	de b7       	in	r29, 0x3e	; 62
+ 3f2:	89 83       	std	Y+1, r24	; 0x01
+ 3f4:	6a 83       	std	Y+2, r22	; 0x02
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+	
+	/* check if pin number is not legal  */
+	if (pinNumber > 7 || pinNumber < 0)
+ 3f6:	8a 81       	ldd	r24, Y+2	; 0x02
+ 3f8:	88 30       	cpi	r24, 0x08	; 8
+ 3fa:	08 f0       	brcs	.+2      	; 0x3fe <DIO_write+0x16>
+ 3fc:	91 c0       	rjmp	.+290    	; 0x520 <__EEPROM_REGION_LENGTH__+0x120>
+ 3fe:	8a 81       	ldd	r24, Y+2	; 0x02
+		error_type = undefined_pin;
+		return error_type;
+	}
+	
+	/* check which port to be used  */
+	switch (portNumber)
+ 400:	89 81       	ldd	r24, Y+1	; 0x01
+ 402:	82 34       	cpi	r24, 0x42	; 66
+ 404:	61 f1       	breq	.+88     	; 0x45e <__EEPROM_REGION_LENGTH__+0x5e>
+ 406:	18 f4       	brcc	.+6      	; 0x40e <__EEPROM_REGION_LENGTH__+0xe>
+ 408:	81 34       	cpi	r24, 0x41	; 65
+ 40a:	41 f0       	breq	.+16     	; 0x41c <__EEPROM_REGION_LENGTH__+0x1c>
+ 40c:	8b c0       	rjmp	.+278    	; 0x524 <__EEPROM_REGION_LENGTH__+0x124>
+ 40e:	83 34       	cpi	r24, 0x43	; 67
+ 410:	09 f4       	brne	.+2      	; 0x414 <__EEPROM_REGION_LENGTH__+0x14>
+ 412:	46 c0       	rjmp	.+140    	; 0x4a0 <__EEPROM_REGION_LENGTH__+0xa0>
+ 414:	84 34       	cpi	r24, 0x44	; 68
+ 416:	09 f4       	brne	.+2      	; 0x41a <__EEPROM_REGION_LENGTH__+0x1a>
+ 418:	63 c0       	rjmp	.+198    	; 0x4e0 <__EEPROM_REGION_LENGTH__+0xe0>
+ 41a:	84 c0       	rjmp	.+264    	; 0x524 <__EEPROM_REGION_LENGTH__+0x124>
+	{
+		case PORT_A:
+			/* if state is LOW, set that pin to 0  */
+			if (state == LOW)
+ 41c:	41 11       	cpse	r20, r1
+ 41e:	0f c0       	rjmp	.+30     	; 0x43e <__EEPROM_REGION_LENGTH__+0x3e>
+			{
+				CLR_BIT(PORTA,pinNumber);		// PORTA &= ~(1<<pinNumber);
+ 420:	2a 81       	ldd	r18, Y+2	; 0x02
+ 422:	81 e0       	ldi	r24, 0x01	; 1
+ 424:	90 e0       	ldi	r25, 0x00	; 0
+ 426:	02 c0       	rjmp	.+4      	; 0x42c <__EEPROM_REGION_LENGTH__+0x2c>
+ 428:	88 0f       	add	r24, r24
+ 42a:	99 1f       	adc	r25, r25
+ 42c:	2a 95       	dec	r18
+ 42e:	e2 f7       	brpl	.-8      	; 0x428 <__EEPROM_REGION_LENGTH__+0x28>
+ 430:	80 95       	com	r24
+ 432:	90 95       	com	r25
+ 434:	9b b3       	in	r25, 0x1b	; 27
+ 436:	89 23       	and	r24, r25
+ 438:	8b bb       	out	0x1b, r24	; 27
+/*******************                 DIO_write()          ****************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_write(volatile uint8_t portNumber, volatile uint8_t pinNumber, uint8_t state) 			// set a pin as HIGH OR LOW
+{
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+ 43a:	80 e0       	ldi	r24, 0x00	; 0
+ 43c:	7c c0       	rjmp	.+248    	; 0x536 <__EEPROM_REGION_LENGTH__+0x136>
+			if (state == LOW)
+			{
+				CLR_BIT(PORTA,pinNumber);		// PORTA &= ~(1<<pinNumber);
+			}
+			/* else if state is HIGH, set that pin to 1  */
+			else if (state == HIGH)
+ 43e:	41 30       	cpi	r20, 0x01	; 1
+ 440:	09 f0       	breq	.+2      	; 0x444 <__EEPROM_REGION_LENGTH__+0x44>
+ 442:	72 c0       	rjmp	.+228    	; 0x528 <__EEPROM_REGION_LENGTH__+0x128>
+			{
+				SET_BIT(PORTA,pinNumber);		// PORTA |= (1<<pinNumber);
+ 444:	2a 81       	ldd	r18, Y+2	; 0x02
+ 446:	81 e0       	ldi	r24, 0x01	; 1
+ 448:	90 e0       	ldi	r25, 0x00	; 0
+ 44a:	02 c0       	rjmp	.+4      	; 0x450 <__EEPROM_REGION_LENGTH__+0x50>
+ 44c:	88 0f       	add	r24, r24
+ 44e:	99 1f       	adc	r25, r25
+ 450:	2a 95       	dec	r18
+ 452:	e2 f7       	brpl	.-8      	; 0x44c <__EEPROM_REGION_LENGTH__+0x4c>
+ 454:	9b b3       	in	r25, 0x1b	; 27
+ 456:	89 2b       	or	r24, r25
+ 458:	8b bb       	out	0x1b, r24	; 27
+/*******************                 DIO_write()          ****************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_write(volatile uint8_t portNumber, volatile uint8_t pinNumber, uint8_t state) 			// set a pin as HIGH OR LOW
+{
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+ 45a:	80 e0       	ldi	r24, 0x00	; 0
+ 45c:	6c c0       	rjmp	.+216    	; 0x536 <__EEPROM_REGION_LENGTH__+0x136>
+			}
+		break;
+		
+		/* repeat the same steps of port A to port B */
+		case PORT_B:
+			if (state == LOW)
+ 45e:	41 11       	cpse	r20, r1
+ 460:	0f c0       	rjmp	.+30     	; 0x480 <__EEPROM_REGION_LENGTH__+0x80>
+			{
+				CLR_BIT(PORTB,pinNumber);		// PORTB &= ~(1<<pinNumber);
+ 462:	2a 81       	ldd	r18, Y+2	; 0x02
+ 464:	81 e0       	ldi	r24, 0x01	; 1
+ 466:	90 e0       	ldi	r25, 0x00	; 0
+ 468:	02 c0       	rjmp	.+4      	; 0x46e <__EEPROM_REGION_LENGTH__+0x6e>
+ 46a:	88 0f       	add	r24, r24
+ 46c:	99 1f       	adc	r25, r25
+ 46e:	2a 95       	dec	r18
+ 470:	e2 f7       	brpl	.-8      	; 0x46a <__EEPROM_REGION_LENGTH__+0x6a>
+ 472:	80 95       	com	r24
+ 474:	90 95       	com	r25
+ 476:	98 b3       	in	r25, 0x18	; 24
+ 478:	89 23       	and	r24, r25
+ 47a:	88 bb       	out	0x18, r24	; 24
+/*******************                 DIO_write()          ****************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_write(volatile uint8_t portNumber, volatile uint8_t pinNumber, uint8_t state) 			// set a pin as HIGH OR LOW
+{
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+ 47c:	80 e0       	ldi	r24, 0x00	; 0
+ 47e:	5b c0       	rjmp	.+182    	; 0x536 <__EEPROM_REGION_LENGTH__+0x136>
+		case PORT_B:
+			if (state == LOW)
+			{
+				CLR_BIT(PORTB,pinNumber);		// PORTB &= ~(1<<pinNumber);
+			}
+			else if (state == HIGH)
+ 480:	41 30       	cpi	r20, 0x01	; 1
+ 482:	09 f0       	breq	.+2      	; 0x486 <__EEPROM_REGION_LENGTH__+0x86>
+ 484:	53 c0       	rjmp	.+166    	; 0x52c <__EEPROM_REGION_LENGTH__+0x12c>
+			{	
+				SET_BIT(PORTB,pinNumber);		// PORTB |= (1<<pinNumber);
+ 486:	2a 81       	ldd	r18, Y+2	; 0x02
+ 488:	81 e0       	ldi	r24, 0x01	; 1
+ 48a:	90 e0       	ldi	r25, 0x00	; 0
+ 48c:	02 c0       	rjmp	.+4      	; 0x492 <__EEPROM_REGION_LENGTH__+0x92>
+ 48e:	88 0f       	add	r24, r24
+ 490:	99 1f       	adc	r25, r25
+ 492:	2a 95       	dec	r18
+ 494:	e2 f7       	brpl	.-8      	; 0x48e <__EEPROM_REGION_LENGTH__+0x8e>
+ 496:	98 b3       	in	r25, 0x18	; 24
+ 498:	89 2b       	or	r24, r25
+ 49a:	88 bb       	out	0x18, r24	; 24
+/*******************                 DIO_write()          ****************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_write(volatile uint8_t portNumber, volatile uint8_t pinNumber, uint8_t state) 			// set a pin as HIGH OR LOW
+{
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+ 49c:	80 e0       	ldi	r24, 0x00	; 0
+ 49e:	4b c0       	rjmp	.+150    	; 0x536 <__EEPROM_REGION_LENGTH__+0x136>
+			}
+		break;
+		
+		/* repeat the same steps of port A to port C */
+		case PORT_C:
+			if (state == LOW)
+ 4a0:	41 11       	cpse	r20, r1
+ 4a2:	0f c0       	rjmp	.+30     	; 0x4c2 <__EEPROM_REGION_LENGTH__+0xc2>
+			{
+				CLR_BIT(PORTC,pinNumber);		// PORTC &= ~(1<<pinNumber);
+ 4a4:	2a 81       	ldd	r18, Y+2	; 0x02
+ 4a6:	81 e0       	ldi	r24, 0x01	; 1
+ 4a8:	90 e0       	ldi	r25, 0x00	; 0
+ 4aa:	02 c0       	rjmp	.+4      	; 0x4b0 <__EEPROM_REGION_LENGTH__+0xb0>
+ 4ac:	88 0f       	add	r24, r24
+ 4ae:	99 1f       	adc	r25, r25
+ 4b0:	2a 95       	dec	r18
+ 4b2:	e2 f7       	brpl	.-8      	; 0x4ac <__EEPROM_REGION_LENGTH__+0xac>
+ 4b4:	80 95       	com	r24
+ 4b6:	90 95       	com	r25
+ 4b8:	95 b3       	in	r25, 0x15	; 21
+ 4ba:	89 23       	and	r24, r25
+ 4bc:	85 bb       	out	0x15, r24	; 21
+/*******************                 DIO_write()          ****************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_write(volatile uint8_t portNumber, volatile uint8_t pinNumber, uint8_t state) 			// set a pin as HIGH OR LOW
+{
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+ 4be:	80 e0       	ldi	r24, 0x00	; 0
+ 4c0:	3a c0       	rjmp	.+116    	; 0x536 <__EEPROM_REGION_LENGTH__+0x136>
+		case PORT_C:
+			if (state == LOW)
+			{
+				CLR_BIT(PORTC,pinNumber);		// PORTC &= ~(1<<pinNumber);
+			}
+			else if (state == HIGH)
+ 4c2:	41 30       	cpi	r20, 0x01	; 1
+ 4c4:	a9 f5       	brne	.+106    	; 0x530 <__EEPROM_REGION_LENGTH__+0x130>
+			{
+				SET_BIT(PORTC,pinNumber);		// PORTC |= (1<<pinNumber);
+ 4c6:	2a 81       	ldd	r18, Y+2	; 0x02
+ 4c8:	81 e0       	ldi	r24, 0x01	; 1
+ 4ca:	90 e0       	ldi	r25, 0x00	; 0
+ 4cc:	02 c0       	rjmp	.+4      	; 0x4d2 <__EEPROM_REGION_LENGTH__+0xd2>
+ 4ce:	88 0f       	add	r24, r24
+ 4d0:	99 1f       	adc	r25, r25
+ 4d2:	2a 95       	dec	r18
+ 4d4:	e2 f7       	brpl	.-8      	; 0x4ce <__EEPROM_REGION_LENGTH__+0xce>
+ 4d6:	95 b3       	in	r25, 0x15	; 21
+ 4d8:	89 2b       	or	r24, r25
+ 4da:	85 bb       	out	0x15, r24	; 21
+/*******************                 DIO_write()          ****************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_write(volatile uint8_t portNumber, volatile uint8_t pinNumber, uint8_t state) 			// set a pin as HIGH OR LOW
+{
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+ 4dc:	80 e0       	ldi	r24, 0x00	; 0
+ 4de:	2b c0       	rjmp	.+86     	; 0x536 <__EEPROM_REGION_LENGTH__+0x136>
+			}
+		break;
+		
+		/* repeat the same steps of port A to port D */
+		case PORT_D:
+			if (state == LOW)
+ 4e0:	41 11       	cpse	r20, r1
+ 4e2:	0f c0       	rjmp	.+30     	; 0x502 <__EEPROM_REGION_LENGTH__+0x102>
+			{
+				CLR_BIT(PORTD,pinNumber);		// PORTD &= ~(1<<pinNumber);
+ 4e4:	2a 81       	ldd	r18, Y+2	; 0x02
+ 4e6:	81 e0       	ldi	r24, 0x01	; 1
+ 4e8:	90 e0       	ldi	r25, 0x00	; 0
+ 4ea:	02 c0       	rjmp	.+4      	; 0x4f0 <__EEPROM_REGION_LENGTH__+0xf0>
+ 4ec:	88 0f       	add	r24, r24
+ 4ee:	99 1f       	adc	r25, r25
+ 4f0:	2a 95       	dec	r18
+ 4f2:	e2 f7       	brpl	.-8      	; 0x4ec <__EEPROM_REGION_LENGTH__+0xec>
+ 4f4:	80 95       	com	r24
+ 4f6:	90 95       	com	r25
+ 4f8:	92 b3       	in	r25, 0x12	; 18
+ 4fa:	89 23       	and	r24, r25
+ 4fc:	82 bb       	out	0x12, r24	; 18
+/*******************                 DIO_write()          ****************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_write(volatile uint8_t portNumber, volatile uint8_t pinNumber, uint8_t state) 			// set a pin as HIGH OR LOW
+{
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+ 4fe:	80 e0       	ldi	r24, 0x00	; 0
+ 500:	1a c0       	rjmp	.+52     	; 0x536 <__EEPROM_REGION_LENGTH__+0x136>
+		case PORT_D:
+			if (state == LOW)
+			{
+				CLR_BIT(PORTD,pinNumber);		// PORTD &= ~(1<<pinNumber);
+			}
+			else if (state == HIGH)
+ 502:	41 30       	cpi	r20, 0x01	; 1
+ 504:	b9 f4       	brne	.+46     	; 0x534 <__EEPROM_REGION_LENGTH__+0x134>
+			{
+				SET_BIT(PORTD,pinNumber);		// PORTD |= (1<<pinNumber);
+ 506:	2a 81       	ldd	r18, Y+2	; 0x02
+ 508:	81 e0       	ldi	r24, 0x01	; 1
+ 50a:	90 e0       	ldi	r25, 0x00	; 0
+ 50c:	02 c0       	rjmp	.+4      	; 0x512 <__EEPROM_REGION_LENGTH__+0x112>
+ 50e:	88 0f       	add	r24, r24
+ 510:	99 1f       	adc	r25, r25
+ 512:	2a 95       	dec	r18
+ 514:	e2 f7       	brpl	.-8      	; 0x50e <__EEPROM_REGION_LENGTH__+0x10e>
+ 516:	92 b3       	in	r25, 0x12	; 18
+ 518:	89 2b       	or	r24, r25
+ 51a:	82 bb       	out	0x12, r24	; 18
+/*******************                 DIO_write()          ****************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_write(volatile uint8_t portNumber, volatile uint8_t pinNumber, uint8_t state) 			// set a pin as HIGH OR LOW
+{
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+ 51c:	80 e0       	ldi	r24, 0x00	; 0
+ 51e:	0b c0       	rjmp	.+22     	; 0x536 <__EEPROM_REGION_LENGTH__+0x136>
+	/* check if pin number is not legal  */
+	if (pinNumber > 7 || pinNumber < 0)
+	{
+		/* set error_type to undefined pin  */
+		error_type = undefined_pin;
+		return error_type;
+ 520:	82 e0       	ldi	r24, 0x02	; 2
+ 522:	09 c0       	rjmp	.+18     	; 0x536 <__EEPROM_REGION_LENGTH__+0x136>
+			
+		break;
+		/* if user enters an invalid port name  */
+		default:
+			/* set error type to undefined port error  */
+			error_type = undefined_port;
+ 524:	81 e0       	ldi	r24, 0x01	; 1
+ 526:	07 c0       	rjmp	.+14     	; 0x536 <__EEPROM_REGION_LENGTH__+0x136>
+			}
+			else
+			/* if user entered a false state other than LOW or HIGH  */
+			{
+				/* set error type to undefined port error  */
+				error_type = undefined_state;
+ 528:	84 e0       	ldi	r24, 0x04	; 4
+ 52a:	05 c0       	rjmp	.+10     	; 0x536 <__EEPROM_REGION_LENGTH__+0x136>
+			{	
+				SET_BIT(PORTB,pinNumber);		// PORTB |= (1<<pinNumber);
+			}
+			else
+			{
+				error_type = undefined_state;
+ 52c:	84 e0       	ldi	r24, 0x04	; 4
+ 52e:	03 c0       	rjmp	.+6      	; 0x536 <__EEPROM_REGION_LENGTH__+0x136>
+			{
+				SET_BIT(PORTC,pinNumber);		// PORTC |= (1<<pinNumber);
+			}
+			else
+			{
+				error_type = undefined_state;
+ 530:	84 e0       	ldi	r24, 0x04	; 4
+ 532:	01 c0       	rjmp	.+2      	; 0x536 <__EEPROM_REGION_LENGTH__+0x136>
+			{
+				SET_BIT(PORTD,pinNumber);		// PORTD |= (1<<pinNumber);
+			}
+			else
+			{
+				error_type = undefined_state;
+ 534:	84 e0       	ldi	r24, 0x04	; 4
+			error_type = undefined_port;
+		break;
+	}
+	/* return error type */
+	return error_type;
+}
+ 536:	0f 90       	pop	r0
+ 538:	0f 90       	pop	r0
+ 53a:	df 91       	pop	r29
+ 53c:	cf 91       	pop	r28
+ 53e:	08 95       	ret
+
+00000540 <DIO_toggle>:
+/*************************************************************************************************/
+/*******************               DIO_toggle()          *****************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_toggle(volatile uint8_t portNumber, volatile uint8_t pinNumber)						// toggles a bit state
+{
+ 540:	cf 93       	push	r28
+ 542:	df 93       	push	r29
+ 544:	00 d0       	rcall	.+0      	; 0x546 <DIO_toggle+0x6>
+ 546:	cd b7       	in	r28, 0x3d	; 61
+ 548:	de b7       	in	r29, 0x3e	; 62
+ 54a:	89 83       	std	Y+1, r24	; 0x01
+ 54c:	6a 83       	std	Y+2, r22	; 0x02
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+	
+	/* check if pin number is not legal  */
+	if (pinNumber > 7 || pinNumber < 0)
+ 54e:	8a 81       	ldd	r24, Y+2	; 0x02
+ 550:	88 30       	cpi	r24, 0x08	; 8
+ 552:	08 f0       	brcs	.+2      	; 0x556 <DIO_toggle+0x16>
+ 554:	41 c0       	rjmp	.+130    	; 0x5d8 <DIO_toggle+0x98>
+ 556:	8a 81       	ldd	r24, Y+2	; 0x02
+		error_type = undefined_pin;
+		return error_type;
+	}
+	
+	/* check which port to be used  */
+	switch(portNumber)
+ 558:	89 81       	ldd	r24, Y+1	; 0x01
+ 55a:	82 34       	cpi	r24, 0x42	; 66
+ 55c:	b1 f0       	breq	.+44     	; 0x58a <DIO_toggle+0x4a>
+ 55e:	18 f4       	brcc	.+6      	; 0x566 <DIO_toggle+0x26>
+ 560:	81 34       	cpi	r24, 0x41	; 65
+ 562:	31 f0       	breq	.+12     	; 0x570 <DIO_toggle+0x30>
+ 564:	3b c0       	rjmp	.+118    	; 0x5dc <DIO_toggle+0x9c>
+ 566:	83 34       	cpi	r24, 0x43	; 67
+ 568:	e9 f0       	breq	.+58     	; 0x5a4 <DIO_toggle+0x64>
+ 56a:	84 34       	cpi	r24, 0x44	; 68
+ 56c:	41 f1       	breq	.+80     	; 0x5be <DIO_toggle+0x7e>
+ 56e:	36 c0       	rjmp	.+108    	; 0x5dc <DIO_toggle+0x9c>
+	{
+		
+		case PORT_A:
+			/* toggle the required pin  */
+			TOGGLE_BIT(PORTA, pinNumber);		// PORTA ^= (1<<pinNumber);
+ 570:	2a 81       	ldd	r18, Y+2	; 0x02
+ 572:	81 e0       	ldi	r24, 0x01	; 1
+ 574:	90 e0       	ldi	r25, 0x00	; 0
+ 576:	02 c0       	rjmp	.+4      	; 0x57c <DIO_toggle+0x3c>
+ 578:	88 0f       	add	r24, r24
+ 57a:	99 1f       	adc	r25, r25
+ 57c:	2a 95       	dec	r18
+ 57e:	e2 f7       	brpl	.-8      	; 0x578 <DIO_toggle+0x38>
+ 580:	9b b3       	in	r25, 0x1b	; 27
+ 582:	89 27       	eor	r24, r25
+ 584:	8b bb       	out	0x1b, r24	; 27
+/*******************               DIO_toggle()          *****************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_toggle(volatile uint8_t portNumber, volatile uint8_t pinNumber)						// toggles a bit state
+{
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+ 586:	80 e0       	ldi	r24, 0x00	; 0
+	{
+		
+		case PORT_A:
+			/* toggle the required pin  */
+			TOGGLE_BIT(PORTA, pinNumber);		// PORTA ^= (1<<pinNumber);
+		break;
+ 588:	2a c0       	rjmp	.+84     	; 0x5de <DIO_toggle+0x9e>
+		
+		/* repeat the same steps of port A to port B */
+		case PORT_B:
+			TOGGLE_BIT(PORTB, pinNumber);		// PORTB ^= (1<<pinNumber);
+ 58a:	2a 81       	ldd	r18, Y+2	; 0x02
+ 58c:	81 e0       	ldi	r24, 0x01	; 1
+ 58e:	90 e0       	ldi	r25, 0x00	; 0
+ 590:	02 c0       	rjmp	.+4      	; 0x596 <DIO_toggle+0x56>
+ 592:	88 0f       	add	r24, r24
+ 594:	99 1f       	adc	r25, r25
+ 596:	2a 95       	dec	r18
+ 598:	e2 f7       	brpl	.-8      	; 0x592 <DIO_toggle+0x52>
+ 59a:	98 b3       	in	r25, 0x18	; 24
+ 59c:	89 27       	eor	r24, r25
+ 59e:	88 bb       	out	0x18, r24	; 24
+/*******************               DIO_toggle()          *****************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_toggle(volatile uint8_t portNumber, volatile uint8_t pinNumber)						// toggles a bit state
+{
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+ 5a0:	80 e0       	ldi	r24, 0x00	; 0
+		break;
+		
+		/* repeat the same steps of port A to port B */
+		case PORT_B:
+			TOGGLE_BIT(PORTB, pinNumber);		// PORTB ^= (1<<pinNumber);
+		break;
+ 5a2:	1d c0       	rjmp	.+58     	; 0x5de <DIO_toggle+0x9e>
+		
+		/* repeat the same steps of port A to port C */
+		case PORT_C:
+			TOGGLE_BIT(PORTC, pinNumber);		// PORTC ^= (1<<pinNumber);
+ 5a4:	2a 81       	ldd	r18, Y+2	; 0x02
+ 5a6:	81 e0       	ldi	r24, 0x01	; 1
+ 5a8:	90 e0       	ldi	r25, 0x00	; 0
+ 5aa:	02 c0       	rjmp	.+4      	; 0x5b0 <DIO_toggle+0x70>
+ 5ac:	88 0f       	add	r24, r24
+ 5ae:	99 1f       	adc	r25, r25
+ 5b0:	2a 95       	dec	r18
+ 5b2:	e2 f7       	brpl	.-8      	; 0x5ac <DIO_toggle+0x6c>
+ 5b4:	95 b3       	in	r25, 0x15	; 21
+ 5b6:	89 27       	eor	r24, r25
+ 5b8:	85 bb       	out	0x15, r24	; 21
+/*******************               DIO_toggle()          *****************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_toggle(volatile uint8_t portNumber, volatile uint8_t pinNumber)						// toggles a bit state
+{
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+ 5ba:	80 e0       	ldi	r24, 0x00	; 0
+		break;
+		
+		/* repeat the same steps of port A to port C */
+		case PORT_C:
+			TOGGLE_BIT(PORTC, pinNumber);		// PORTC ^= (1<<pinNumber);
+		break;
+ 5bc:	10 c0       	rjmp	.+32     	; 0x5de <DIO_toggle+0x9e>
+		
+		/* repeat the same steps of port A to port D */
+		case PORT_D:
+			TOGGLE_BIT(PORTD, pinNumber);		// PORTD ^= (1<<pinNumber);
+ 5be:	2a 81       	ldd	r18, Y+2	; 0x02
+ 5c0:	81 e0       	ldi	r24, 0x01	; 1
+ 5c2:	90 e0       	ldi	r25, 0x00	; 0
+ 5c4:	02 c0       	rjmp	.+4      	; 0x5ca <DIO_toggle+0x8a>
+ 5c6:	88 0f       	add	r24, r24
+ 5c8:	99 1f       	adc	r25, r25
+ 5ca:	2a 95       	dec	r18
+ 5cc:	e2 f7       	brpl	.-8      	; 0x5c6 <DIO_toggle+0x86>
+ 5ce:	92 b3       	in	r25, 0x12	; 18
+ 5d0:	89 27       	eor	r24, r25
+ 5d2:	82 bb       	out	0x12, r24	; 18
+/*******************               DIO_toggle()          *****************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_toggle(volatile uint8_t portNumber, volatile uint8_t pinNumber)						// toggles a bit state
+{
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+ 5d4:	80 e0       	ldi	r24, 0x00	; 0
+		break;
+		
+		/* repeat the same steps of port A to port D */
+		case PORT_D:
+			TOGGLE_BIT(PORTD, pinNumber);		// PORTD ^= (1<<pinNumber);
+		break;
+ 5d6:	03 c0       	rjmp	.+6      	; 0x5de <DIO_toggle+0x9e>
+	/* check if pin number is not legal  */
+	if (pinNumber > 7 || pinNumber < 0)
+	{
+		/* return undefined pin error  */
+		error_type = undefined_pin;
+		return error_type;
+ 5d8:	82 e0       	ldi	r24, 0x02	; 2
+ 5da:	01 c0       	rjmp	.+2      	; 0x5de <DIO_toggle+0x9e>
+		break;
+		
+		/* if user enters an invalid port name  */
+		default:
+			/* set error type to undefined port error  */
+			error_type = undefined_port;
+ 5dc:	81 e0       	ldi	r24, 0x01	; 1
+		break;
+	}
+	/* return error type */
+	return error_type;
+}
+ 5de:	0f 90       	pop	r0
+ 5e0:	0f 90       	pop	r0
+ 5e2:	df 91       	pop	r29
+ 5e4:	cf 91       	pop	r28
+ 5e6:	08 95       	ret
+
+000005e8 <DIO_read>:
+/*************************************************************************************************/
+/*******************               DIO_read()          *******************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_read(volatile uint8_t portNumber, volatile uint8_t pinNumber, uint8_t * state)		// get the pin state
+{
+ 5e8:	cf 93       	push	r28
+ 5ea:	df 93       	push	r29
+ 5ec:	00 d0       	rcall	.+0      	; 0x5ee <DIO_read+0x6>
+ 5ee:	cd b7       	in	r28, 0x3d	; 61
+ 5f0:	de b7       	in	r29, 0x3e	; 62
+ 5f2:	89 83       	std	Y+1, r24	; 0x01
+ 5f4:	6a 83       	std	Y+2, r22	; 0x02
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+	
+	/* check if pin number is not legal  */
+	if (pinNumber > 7 || pinNumber < 0)
+ 5f6:	8a 81       	ldd	r24, Y+2	; 0x02
+ 5f8:	88 30       	cpi	r24, 0x08	; 8
+ 5fa:	08 f0       	brcs	.+2      	; 0x5fe <DIO_read+0x16>
+ 5fc:	6e c0       	rjmp	.+220    	; 0x6da <DIO_read+0xf2>
+ 5fe:	8a 81       	ldd	r24, Y+2	; 0x02
+		error_type = undefined_pin;
+		return error_type;
+	}
+	
+	/* check which port to be used  */
+	switch(portNumber)
+ 600:	89 81       	ldd	r24, Y+1	; 0x01
+ 602:	82 34       	cpi	r24, 0x42	; 66
+ 604:	11 f1       	breq	.+68     	; 0x64a <DIO_read+0x62>
+ 606:	18 f4       	brcc	.+6      	; 0x60e <DIO_read+0x26>
+ 608:	81 34       	cpi	r24, 0x41	; 65
+ 60a:	39 f0       	breq	.+14     	; 0x61a <DIO_read+0x32>
+ 60c:	68 c0       	rjmp	.+208    	; 0x6de <DIO_read+0xf6>
+ 60e:	83 34       	cpi	r24, 0x43	; 67
+ 610:	a1 f1       	breq	.+104    	; 0x67a <DIO_read+0x92>
+ 612:	84 34       	cpi	r24, 0x44	; 68
+ 614:	09 f4       	brne	.+2      	; 0x618 <DIO_read+0x30>
+ 616:	49 c0       	rjmp	.+146    	; 0x6aa <DIO_read+0xc2>
+ 618:	62 c0       	rjmp	.+196    	; 0x6de <DIO_read+0xf6>
+	{
+		case PORT_A:
+			/* read pin state and store it in state variable  */
+			*state = (PINA & (1<<pinNumber)) >>pinNumber;		// read pin state
+ 61a:	69 b3       	in	r22, 0x19	; 25
+ 61c:	2a 81       	ldd	r18, Y+2	; 0x02
+ 61e:	81 e0       	ldi	r24, 0x01	; 1
+ 620:	90 e0       	ldi	r25, 0x00	; 0
+ 622:	fc 01       	movw	r30, r24
+ 624:	02 c0       	rjmp	.+4      	; 0x62a <DIO_read+0x42>
+ 626:	ee 0f       	add	r30, r30
+ 628:	ff 1f       	adc	r31, r31
+ 62a:	2a 95       	dec	r18
+ 62c:	e2 f7       	brpl	.-8      	; 0x626 <DIO_read+0x3e>
+ 62e:	86 2f       	mov	r24, r22
+ 630:	90 e0       	ldi	r25, 0x00	; 0
+ 632:	8e 23       	and	r24, r30
+ 634:	9f 23       	and	r25, r31
+ 636:	2a 81       	ldd	r18, Y+2	; 0x02
+ 638:	02 c0       	rjmp	.+4      	; 0x63e <DIO_read+0x56>
+ 63a:	95 95       	asr	r25
+ 63c:	87 95       	ror	r24
+ 63e:	2a 95       	dec	r18
+ 640:	e2 f7       	brpl	.-8      	; 0x63a <DIO_read+0x52>
+ 642:	fa 01       	movw	r30, r20
+ 644:	80 83       	st	Z, r24
+/*******************               DIO_read()          *******************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_read(volatile uint8_t portNumber, volatile uint8_t pinNumber, uint8_t * state)		// get the pin state
+{
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+ 646:	80 e0       	ldi	r24, 0x00	; 0
+	switch(portNumber)
+	{
+		case PORT_A:
+			/* read pin state and store it in state variable  */
+			*state = (PINA & (1<<pinNumber)) >>pinNumber;		// read pin state
+		break;
+ 648:	4b c0       	rjmp	.+150    	; 0x6e0 <DIO_read+0xf8>
+		
+		/* repeat the same steps of port A to port B */
+		case PORT_B:
+			*state = (PINB & (1<<pinNumber)) >>pinNumber;
+ 64a:	66 b3       	in	r22, 0x16	; 22
+ 64c:	2a 81       	ldd	r18, Y+2	; 0x02
+ 64e:	81 e0       	ldi	r24, 0x01	; 1
+ 650:	90 e0       	ldi	r25, 0x00	; 0
+ 652:	fc 01       	movw	r30, r24
+ 654:	02 c0       	rjmp	.+4      	; 0x65a <DIO_read+0x72>
+ 656:	ee 0f       	add	r30, r30
+ 658:	ff 1f       	adc	r31, r31
+ 65a:	2a 95       	dec	r18
+ 65c:	e2 f7       	brpl	.-8      	; 0x656 <DIO_read+0x6e>
+ 65e:	86 2f       	mov	r24, r22
+ 660:	90 e0       	ldi	r25, 0x00	; 0
+ 662:	8e 23       	and	r24, r30
+ 664:	9f 23       	and	r25, r31
+ 666:	2a 81       	ldd	r18, Y+2	; 0x02
+ 668:	02 c0       	rjmp	.+4      	; 0x66e <DIO_read+0x86>
+ 66a:	95 95       	asr	r25
+ 66c:	87 95       	ror	r24
+ 66e:	2a 95       	dec	r18
+ 670:	e2 f7       	brpl	.-8      	; 0x66a <DIO_read+0x82>
+ 672:	fa 01       	movw	r30, r20
+ 674:	80 83       	st	Z, r24
+/*******************               DIO_read()          *******************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_read(volatile uint8_t portNumber, volatile uint8_t pinNumber, uint8_t * state)		// get the pin state
+{
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+ 676:	80 e0       	ldi	r24, 0x00	; 0
+		break;
+		
+		/* repeat the same steps of port A to port B */
+		case PORT_B:
+			*state = (PINB & (1<<pinNumber)) >>pinNumber;
+		break;
+ 678:	33 c0       	rjmp	.+102    	; 0x6e0 <DIO_read+0xf8>
+		
+		/* repeat the same steps of port A to port C */
+		case PORT_C:
+			*state = (PINC & (1<<pinNumber)) >>pinNumber;
+ 67a:	63 b3       	in	r22, 0x13	; 19
+ 67c:	2a 81       	ldd	r18, Y+2	; 0x02
+ 67e:	81 e0       	ldi	r24, 0x01	; 1
+ 680:	90 e0       	ldi	r25, 0x00	; 0
+ 682:	fc 01       	movw	r30, r24
+ 684:	02 c0       	rjmp	.+4      	; 0x68a <DIO_read+0xa2>
+ 686:	ee 0f       	add	r30, r30
+ 688:	ff 1f       	adc	r31, r31
+ 68a:	2a 95       	dec	r18
+ 68c:	e2 f7       	brpl	.-8      	; 0x686 <DIO_read+0x9e>
+ 68e:	86 2f       	mov	r24, r22
+ 690:	90 e0       	ldi	r25, 0x00	; 0
+ 692:	8e 23       	and	r24, r30
+ 694:	9f 23       	and	r25, r31
+ 696:	2a 81       	ldd	r18, Y+2	; 0x02
+ 698:	02 c0       	rjmp	.+4      	; 0x69e <DIO_read+0xb6>
+ 69a:	95 95       	asr	r25
+ 69c:	87 95       	ror	r24
+ 69e:	2a 95       	dec	r18
+ 6a0:	e2 f7       	brpl	.-8      	; 0x69a <DIO_read+0xb2>
+ 6a2:	fa 01       	movw	r30, r20
+ 6a4:	80 83       	st	Z, r24
+/*******************               DIO_read()          *******************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_read(volatile uint8_t portNumber, volatile uint8_t pinNumber, uint8_t * state)		// get the pin state
+{
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+ 6a6:	80 e0       	ldi	r24, 0x00	; 0
+		break;
+		
+		/* repeat the same steps of port A to port C */
+		case PORT_C:
+			*state = (PINC & (1<<pinNumber)) >>pinNumber;
+		break;
+ 6a8:	1b c0       	rjmp	.+54     	; 0x6e0 <DIO_read+0xf8>
+		
+		/* repeat the same steps of port A to port D */
+		case PORT_D:
+			*state = (PIND & (1<<pinNumber)) >>pinNumber;
+ 6aa:	60 b3       	in	r22, 0x10	; 16
+ 6ac:	2a 81       	ldd	r18, Y+2	; 0x02
+ 6ae:	81 e0       	ldi	r24, 0x01	; 1
+ 6b0:	90 e0       	ldi	r25, 0x00	; 0
+ 6b2:	fc 01       	movw	r30, r24
+ 6b4:	02 c0       	rjmp	.+4      	; 0x6ba <DIO_read+0xd2>
+ 6b6:	ee 0f       	add	r30, r30
+ 6b8:	ff 1f       	adc	r31, r31
+ 6ba:	2a 95       	dec	r18
+ 6bc:	e2 f7       	brpl	.-8      	; 0x6b6 <DIO_read+0xce>
+ 6be:	86 2f       	mov	r24, r22
+ 6c0:	90 e0       	ldi	r25, 0x00	; 0
+ 6c2:	8e 23       	and	r24, r30
+ 6c4:	9f 23       	and	r25, r31
+ 6c6:	2a 81       	ldd	r18, Y+2	; 0x02
+ 6c8:	02 c0       	rjmp	.+4      	; 0x6ce <DIO_read+0xe6>
+ 6ca:	95 95       	asr	r25
+ 6cc:	87 95       	ror	r24
+ 6ce:	2a 95       	dec	r18
+ 6d0:	e2 f7       	brpl	.-8      	; 0x6ca <DIO_read+0xe2>
+ 6d2:	fa 01       	movw	r30, r20
+ 6d4:	80 83       	st	Z, r24
+/*******************               DIO_read()          *******************************************/
+/*************************************************************************************************/
+EN_DIO_error DIO_read(volatile uint8_t portNumber, volatile uint8_t pinNumber, uint8_t * state)		// get the pin state
+{
+	/* create a variable to store the error type  */
+	EN_DIO_error error_type = DIO_ok;
+ 6d6:	80 e0       	ldi	r24, 0x00	; 0
+		break;
+		
+		/* repeat the same steps of port A to port D */
+		case PORT_D:
+			*state = (PIND & (1<<pinNumber)) >>pinNumber;
+		break;
+ 6d8:	03 c0       	rjmp	.+6      	; 0x6e0 <DIO_read+0xf8>
+	/* check if pin number is not legal  */
+	if (pinNumber > 7 || pinNumber < 0)
+	{
+		/* return undefined pin error  */
+		error_type = undefined_pin;
+		return error_type;
+ 6da:	82 e0       	ldi	r24, 0x02	; 2
+ 6dc:	01 c0       	rjmp	.+2      	; 0x6e0 <DIO_read+0xf8>
+		break;
+		
+		/* if user enters an invalid port name  */
+		default:
+			/* set error type to undefined port error  */
+			error_type = undefined_port;
+ 6de:	81 e0       	ldi	r24, 0x01	; 1
+		break;
+	}
+	/* return error type */
+	return error_type;
+}
+ 6e0:	0f 90       	pop	r0
+ 6e2:	0f 90       	pop	r0
+ 6e4:	df 91       	pop	r29
+ 6e6:	cf 91       	pop	r28
+ 6e8:	08 95       	ret
+
+000006ea <_exit>:
+ 6ea:	f8 94       	cli
+
+000006ec <__stop_program>:
+ 6ec:	ff cf       	rjmp	.-2      	; 0x6ec <__stop_program>
