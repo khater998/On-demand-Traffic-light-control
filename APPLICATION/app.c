@@ -116,9 +116,6 @@ void pedesterianMode()
 ISR(INT0_vect)
 {
 	/* Disable interrupt 0 till ISR is executed */
-	EXT_INT0_DISABLE();
-
 	pedesterianMode();
-	EXT_INT0_ENABLE();
 	interrupt_triggered = 1;
 }

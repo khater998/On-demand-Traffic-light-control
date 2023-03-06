@@ -1,12 +1,12 @@
 main.d main.o: .././main.c .././APPLICATION/app.h \
  .././APPLICATION/../ECUAL/Button\ Driver/button.h \
- .././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/DIO\ Driver/dio.h \
- .././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/DIO\ Driver/../../UTILITY/registers.h \
- .././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/DIO\ Driver/../../UTILITY/STD_types.h \
- .././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/DIO\ Driver/../../UTILITY/bit_operations.h \
- .././APPLICATION/../ECUAL/Button\ Driver/../../UTILITY/registers.h \
- .././APPLICATION/../ECUAL/Button\ Driver/../../UTILITY/STD_types.h \
- .././APPLICATION/../ECUAL/Button\ Driver/../../UTILITY/bit_operations.h \
+ d:\on-demand\ traffic\ light\ control\mcal\dio\ driver\dio.h \
+ d:\on-demand\ traffic\ light\ control\utility\registers.h \
+ d:\on-demand\ traffic\ light\ control\utility\std_types.h \
+ d:\on-demand\ traffic\ light\ control\utility\bit_operations.h \
+ d:\on-demand\ traffic\ light\ control\utility\registers.h \
+ d:\on-demand\ traffic\ light\ control\utility\std_types.h \
+ d:\on-demand\ traffic\ light\ control\utility\bit_operations.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -19,21 +19,21 @@ main.d main.o: .././main.c .././APPLICATION/app.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- .././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/INTERRUPT\ Driver/interrupt.h \
- .././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/INTERRUPT\ Driver/../DIO\ Driver/dio.h \
- .././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/INTERRUPT\ Driver/../../UTILITY/registers.h \
- .././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/INTERRUPT\ Driver/../../UTILITY/STD_types.h \
- .././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/INTERRUPT\ Driver/../../UTILITY/bit_operations.h \
+ d:\on-demand\ traffic\ light\ control\mcal\interrupt\ driver\interrupt.h \
+ d:\on-demand\ traffic\ light\ control\mcal\dio\ driver\dio.h \
+ d:\on-demand\ traffic\ light\ control\utility\registers.h \
+ d:\on-demand\ traffic\ light\ control\utility\std_types.h \
+ d:\on-demand\ traffic\ light\ control\utility\bit_operations.h \
  .././APPLICATION/../ECUAL/LED\ Driver/led.h \
- .././APPLICATION/../ECUAL/LED\ Driver/../../MCAL/DIO\ Driver/dio.h \
- .././APPLICATION/../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/timer.h \
- .././APPLICATION/../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/../DIO\ Driver/dio.h \
- .././APPLICATION/../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/../../UTILITY/registers.h \
- .././APPLICATION/../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/../../UTILITY/STD_types.h \
- .././APPLICATION/../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/../../UTILITY/bit_operations.h \
- .././APPLICATION/../ECUAL/LED\ Driver/../../UTILITY/registers.h \
- .././APPLICATION/../ECUAL/LED\ Driver/../../UTILITY/STD_types.h \
- .././APPLICATION/../ECUAL/LED\ Driver/../../UTILITY/bit_operations.h \
+ d:\on-demand\ traffic\ light\ control\mcal\dio\ driver\dio.h \
+ d:\on-demand\ traffic\ light\ control\mcal\timer\ driver\timer.h \
+ d:\on-demand\ traffic\ light\ control\mcal\dio\ driver\dio.h \
+ d:\on-demand\ traffic\ light\ control\utility\registers.h \
+ d:\on-demand\ traffic\ light\ control\utility\std_types.h \
+ d:\on-demand\ traffic\ light\ control\utility\bit_operations.h \
+ d:\on-demand\ traffic\ light\ control\utility\registers.h \
+ d:\on-demand\ traffic\ light\ control\utility\std_types.h \
+ d:\on-demand\ traffic\ light\ control\utility\bit_operations.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
@@ -42,19 +42,19 @@ main.d main.o: .././main.c .././APPLICATION/app.h \
 
 .././APPLICATION/../ECUAL/Button\ Driver/button.h:
 
-.././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/DIO\ Driver/dio.h:
+d:\on-demand\ traffic\ light\ control\mcal\dio\ driver\dio.h:
 
-.././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/DIO\ Driver/../../UTILITY/registers.h:
+d:\on-demand\ traffic\ light\ control\utility\registers.h:
 
-.././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/DIO\ Driver/../../UTILITY/STD_types.h:
+d:\on-demand\ traffic\ light\ control\utility\std_types.h:
 
-.././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/DIO\ Driver/../../UTILITY/bit_operations.h:
+d:\on-demand\ traffic\ light\ control\utility\bit_operations.h:
 
-.././APPLICATION/../ECUAL/Button\ Driver/../../UTILITY/registers.h:
+d:\on-demand\ traffic\ light\ control\utility\registers.h:
 
-.././APPLICATION/../ECUAL/Button\ Driver/../../UTILITY/STD_types.h:
+d:\on-demand\ traffic\ light\ control\utility\std_types.h:
 
-.././APPLICATION/../ECUAL/Button\ Driver/../../UTILITY/bit_operations.h:
+d:\on-demand\ traffic\ light\ control\utility\bit_operations.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
@@ -80,35 +80,35 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-.././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/INTERRUPT\ Driver/interrupt.h:
+d:\on-demand\ traffic\ light\ control\mcal\interrupt\ driver\interrupt.h:
 
-.././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/INTERRUPT\ Driver/../DIO\ Driver/dio.h:
+d:\on-demand\ traffic\ light\ control\mcal\dio\ driver\dio.h:
 
-.././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/INTERRUPT\ Driver/../../UTILITY/registers.h:
+d:\on-demand\ traffic\ light\ control\utility\registers.h:
 
-.././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/INTERRUPT\ Driver/../../UTILITY/STD_types.h:
+d:\on-demand\ traffic\ light\ control\utility\std_types.h:
 
-.././APPLICATION/../ECUAL/Button\ Driver/../../MCAL/INTERRUPT\ Driver/../../UTILITY/bit_operations.h:
+d:\on-demand\ traffic\ light\ control\utility\bit_operations.h:
 
 .././APPLICATION/../ECUAL/LED\ Driver/led.h:
 
-.././APPLICATION/../ECUAL/LED\ Driver/../../MCAL/DIO\ Driver/dio.h:
+d:\on-demand\ traffic\ light\ control\mcal\dio\ driver\dio.h:
 
-.././APPLICATION/../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/timer.h:
+d:\on-demand\ traffic\ light\ control\mcal\timer\ driver\timer.h:
 
-.././APPLICATION/../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/../DIO\ Driver/dio.h:
+d:\on-demand\ traffic\ light\ control\mcal\dio\ driver\dio.h:
 
-.././APPLICATION/../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/../../UTILITY/registers.h:
+d:\on-demand\ traffic\ light\ control\utility\registers.h:
 
-.././APPLICATION/../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/../../UTILITY/STD_types.h:
+d:\on-demand\ traffic\ light\ control\utility\std_types.h:
 
-.././APPLICATION/../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/../../UTILITY/bit_operations.h:
+d:\on-demand\ traffic\ light\ control\utility\bit_operations.h:
 
-.././APPLICATION/../ECUAL/LED\ Driver/../../UTILITY/registers.h:
+d:\on-demand\ traffic\ light\ control\utility\registers.h:
 
-.././APPLICATION/../ECUAL/LED\ Driver/../../UTILITY/STD_types.h:
+d:\on-demand\ traffic\ light\ control\utility\std_types.h:
 
-.././APPLICATION/../ECUAL/LED\ Driver/../../UTILITY/bit_operations.h:
+d:\on-demand\ traffic\ light\ control\utility\bit_operations.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 

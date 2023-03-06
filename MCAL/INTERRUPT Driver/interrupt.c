@@ -20,12 +20,10 @@ EN_INTERRUPT_error EXT_INT0_triggerControl(triggerControl_t trigger_condition)
 		/* set error_type to undefined_trigger_condition  */
 		return error_type = undefined_trigger_condition;
 	}
+	
 	/* CLEAR ISC00 && ISC01 (responsible for trigger control of interrupt 0)  */
-	CLR_BIT(MCUCR,0);					
-	CLR_BIT(MCUCR,1);
-		
 	/* load ISC00 && ISC01 with the relevant trigger  */
-	MCUCR	|= (trigger_condition);				/* trigger condition values are 0,1,2,3
+	MCUCR	= (MCUCR & 0xFC) | (trigger_condition);				/* trigger condition values are 0,1,2,3
 											   if it's 0 then nothing will change, we have already CLEARED ISC00 and ISC01
 											   else if it's 1 then ISC00 will be set to 1
 											   else if it's 2 then ISC01 will be set to 1
@@ -46,14 +44,11 @@ EN_INTERRUPT_error EXT_INT1_triggerControl(triggerControl_t trigger_condition)
 		/* set error_type to undefined_trigger_condition  */
 		return error_type = undefined_trigger_condition;
 	}
-	/* CLEAR ISC10 && ISC11 (responsible for trigger control of interrupt 1)  */
-	CLR_BIT(MCUCR,2);					
-	CLR_BIT(MCUCR,3);
 	
 	/* trigger conditions for interrupt 1 are the same as of interrupt 0  */
 	/* the only difference is that ISC10 && ISC11 are shifted two bits of ISC00 && ISC01 */
 	/* So, we shift the trigger condition twice, then, we use OR  */
-	MCUCR	|= ((trigger_condition << 2));																
+	MCUCR	= (MCUCR & 0XF3) | ((trigger_condition << 2));																
 	
 	return error_type;
 }

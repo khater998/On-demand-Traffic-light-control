@@ -38,7 +38,7 @@ EN_DIO_error DIO_init(volatile uint8_t portNumber, volatile uint8_t pinNumber, u
 				SET_BIT(DDRA,pinNumber);		// DDRA |= (1<<pinNumber);
 			}
 			else
-			/* if user entered a false direction other than input or output  */
+			/* if user entered a false direction other than input(0) or output(1)  */
 			{
 				error_type = undefined_direction;
 			}

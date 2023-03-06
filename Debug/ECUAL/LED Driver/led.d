@@ -1,14 +1,14 @@
 ECUAL/LED Driver/led.d ECUAL/LED Driver/led.o: ../ECUAL/LED\ Driver/led.c \
  ../ECUAL/LED\ Driver/led.h \
  ../ECUAL/LED\ Driver/../../MCAL/DIO\ Driver/dio.h \
- ../ECUAL/LED\ Driver/../../MCAL/DIO\ Driver/../../UTILITY/registers.h \
- ../ECUAL/LED\ Driver/../../MCAL/DIO\ Driver/../../UTILITY/STD_types.h \
- ../ECUAL/LED\ Driver/../../MCAL/DIO\ Driver/../../UTILITY/bit_operations.h \
+ d:\on-demand\ traffic\ light\ control\utility\registers.h \
+ d:\on-demand\ traffic\ light\ control\utility\std_types.h \
+ d:\on-demand\ traffic\ light\ control\utility\bit_operations.h \
  ../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/timer.h \
- ../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/../DIO\ Driver/dio.h \
- ../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/../../UTILITY/registers.h \
- ../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/../../UTILITY/STD_types.h \
- ../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/../../UTILITY/bit_operations.h \
+ d:\on-demand\ traffic\ light\ control\mcal\dio\ driver\dio.h \
+ d:\on-demand\ traffic\ light\ control\utility\registers.h \
+ d:\on-demand\ traffic\ light\ control\utility\std_types.h \
+ d:\on-demand\ traffic\ light\ control\utility\bit_operations.h \
  ../ECUAL/LED\ Driver/../../UTILITY/registers.h \
  ../ECUAL/LED\ Driver/../../UTILITY/STD_types.h \
  ../ECUAL/LED\ Driver/../../UTILITY/bit_operations.h \
@@ -23,21 +23,21 @@ ECUAL/LED Driver/led.d ECUAL/LED Driver/led.o: ../ECUAL/LED\ Driver/led.c \
 
 ../ECUAL/LED\ Driver/../../MCAL/DIO\ Driver/dio.h:
 
-../ECUAL/LED\ Driver/../../MCAL/DIO\ Driver/../../UTILITY/registers.h:
+d:\on-demand\ traffic\ light\ control\utility\registers.h:
 
-../ECUAL/LED\ Driver/../../MCAL/DIO\ Driver/../../UTILITY/STD_types.h:
+d:\on-demand\ traffic\ light\ control\utility\std_types.h:
 
-../ECUAL/LED\ Driver/../../MCAL/DIO\ Driver/../../UTILITY/bit_operations.h:
+d:\on-demand\ traffic\ light\ control\utility\bit_operations.h:
 
 ../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/timer.h:
 
-../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/../DIO\ Driver/dio.h:
+d:\on-demand\ traffic\ light\ control\mcal\dio\ driver\dio.h:
 
-../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/../../UTILITY/registers.h:
+d:\on-demand\ traffic\ light\ control\utility\registers.h:
 
-../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/../../UTILITY/STD_types.h:
+d:\on-demand\ traffic\ light\ control\utility\std_types.h:
 
-../ECUAL/LED\ Driver/../../MCAL/TIMER\ Driver/../../UTILITY/bit_operations.h:
+d:\on-demand\ traffic\ light\ control\utility\bit_operations.h:
 
 ../ECUAL/LED\ Driver/../../UTILITY/registers.h:
 

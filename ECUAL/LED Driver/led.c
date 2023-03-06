@@ -256,12 +256,14 @@ EN_LED_error leds_on_temporary_interruptCheck(led_t *led1, led_t *led2, uint8_t 
 	
 	/* check if pin is initialized as OUTPUT before operating */
 	error_type = check_initilization(led1);
+	
 	/* if there is any error, don't do anything and return */
 	if (error_type != LED_ok)
 		return error_type;
 	
 	/* check if pin is initialized as OUTPUT before operating */
 	error_type = check_initilization(led2);
+	
 	/* if there is any error, don't do anything and return */
 	if (error_type != LED_ok)
 		return error_type;
