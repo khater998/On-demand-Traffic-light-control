@@ -2,207 +2,90 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-SHELL := cmd.exe
+-include ../makefile.init
+
 RM := rm -rf
 
-USER_OBJS :=
-
-LIBS := 
-PROJ := 
-
-O_SRCS := 
-C_SRCS := 
-S_SRCS := 
-S_UPPER_SRCS := 
-OBJ_SRCS := 
-ASM_SRCS := 
-PREPROCESSING_SRCS := 
-OBJS := 
-OBJS_AS_ARGS := 
-C_DEPS := 
-C_DEPS_AS_ARGS := 
-EXECUTABLES := 
-OUTPUT_FILE_PATH :=
-OUTPUT_FILE_PATH_AS_ARGS :=
-AVR_APP_PATH :=$$$AVR_APP_PATH$$$
-QUOTE := "
-ADDITIONAL_DEPENDENCIES:=
-OUTPUT_FILE_DEP:=
-LIB_DEP:=
-LINKER_SCRIPT_DEP:=
-
-# Every subdirectory with source files must be described here
-SUBDIRS :=  \
-../ECUAL/LED\ Driver \
-../ECUAL/Button\ Driver \
-../MCAL \
-../ECUAL \
-../MCAL/DIO\ Driver \
-../APPLICATION \
-../MCAL/INTERRUPT\ Driver \
-../MCAL/TIMER\ Driver \
-../UTILITY
-
-
-# Add inputs and outputs from these tool invocations to the build variables 
-C_SRCS +=  \
-../APPLICATION/app.c \
-../ECUAL/Button\ Driver/button.c \
-../ECUAL/LED\ Driver/led.c \
-../main.c \
-../MCAL/DIO\ Driver/dio.c \
-../MCAL/INTERRUPT\ Driver/interrupt.c \
-../MCAL/TIMER\ Driver/timer.c
-
-
-PREPROCESSING_SRCS += 
-
-
-ASM_SRCS += 
-
-
-OBJS +=  \
-APPLICATION/app.o \
-ECUAL/Button\ Driver/button.o \
-ECUAL/LED\ Driver/led.o \
-main.o \
-MCAL/DIO\ Driver/dio.o \
-MCAL/INTERRUPT\ Driver/interrupt.o \
-MCAL/TIMER\ Driver/timer.o
-
-OBJS_AS_ARGS +=  \
-APPLICATION/app.o \
-"ECUAL/Button Driver/button.o" \
-"ECUAL/LED Driver/led.o" \
-main.o \
-"MCAL/DIO Driver/dio.o" \
-"MCAL/INTERRUPT Driver/interrupt.o" \
-"MCAL/TIMER Driver/timer.o"
-
-C_DEPS +=  \
-APPLICATION/app.d \
-ECUAL/Button\ Driver/button.d \
-ECUAL/LED\ Driver/led.d \
-main.d \
-MCAL/DIO\ Driver/dio.d \
-MCAL/INTERRUPT\ Driver/interrupt.d \
-MCAL/TIMER\ Driver/timer.d
-
-C_DEPS_AS_ARGS +=  \
-APPLICATION/app.d \
-"ECUAL/Button Driver/button.d" \
-"ECUAL/LED Driver/led.d" \
-main.d \
-"MCAL/DIO Driver/dio.d" \
-"MCAL/INTERRUPT Driver/interrupt.d" \
-"MCAL/TIMER Driver/timer.d"
-
-OUTPUT_FILE_PATH +=On-demand\ Traffic\ light\ control.elf
-
-OUTPUT_FILE_PATH_AS_ARGS +="On-demand Traffic light control.elf"
-
-ADDITIONAL_DEPENDENCIES:=
-
-OUTPUT_FILE_DEP:= ./makedep.mk
-
-LIB_DEP+= 
-
-LINKER_SCRIPT_DEP+= 
-
-
-# AVR32/GNU C Compiler
-APPLICATION/app.o: ../APPLICATION/app.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-ECUAL/Button\ Driver/button.o: ../ECUAL/Button\ Driver/button.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-ECUAL/LED\ Driver/led.o: ../ECUAL/LED\ Driver/led.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-./main.o: .././main.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-MCAL/DIO\ Driver/dio.o: ../MCAL/DIO\ Driver/dio.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-MCAL/INTERRUPT\ Driver/interrupt.o: ../MCAL/INTERRUPT\ Driver/interrupt.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-MCAL/TIMER\ Driver/timer.o: ../MCAL/TIMER\ Driver/timer.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-
-
-
-# AVR32/GNU Preprocessing Assembler
-
-
-
-# AVR32/GNU Assembler
-
-
-
+# All of the sources participating in the build are defined here
+-include sources.mk
+-include MCAL_layer/TIMER0/subdir.mk
+-include MCAL_layer/INTERRUPT_driver/subdir.mk
+-include MCAL_layer/GPIO_driver/subdir.mk
+-include ECUAL_layer/LED_driver/subdir.mk
+-include ECUAL_layer/BUTTON_driver/subdir.mk
+-include APP/subdir.mk
+-include subdir.mk
+-include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(ASM_DEPS)),)
+-include $(ASM_DEPS)
+endif
+ifneq ($(strip $(S_DEPS)),)
+-include $(S_DEPS)
+endif
+ifneq ($(strip $(S_UPPER_DEPS)),)
+-include $(S_UPPER_DEPS)
+endif
 ifneq ($(strip $(C_DEPS)),)
 -include $(C_DEPS)
 endif
 endif
 
+-include ../makefile.defs
+
+OPTIONAL_TOOL_DEPS := \
+$(wildcard ../makefile.defs) \
+$(wildcard ../makefile.init) \
+$(wildcard ../makefile.targets) \
+
+
+BUILD_ARTIFACT_NAME := on
+BUILD_ARTIFACT_EXTENSION := elf
+BUILD_ARTIFACT_PREFIX :=
+BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
+
 # Add inputs and outputs from these tool invocations to the build variables 
+LSS += \
+on.lss \
+
+SIZEDUMMY += \
+sizedummy \
+
 
 # All Target
-all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
+all: main-build
 
-$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
-	@echo Building target: $@
-	@echo Invoking: AVR/GNU Linker : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="On-demand Traffic light control.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a"  
-	@echo Finished building target: $@
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "On-demand Traffic light control.elf" "On-demand Traffic light control.hex"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "On-demand Traffic light control.elf" "On-demand Traffic light control.eep" || exit 0
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "On-demand Traffic light control.elf" > "On-demand Traffic light control.lss"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "On-demand Traffic light control.elf" "On-demand Traffic light control.srec"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-size.exe" "On-demand Traffic light control.elf"
-	
-	
+# Main-build Target
+main-build: on.elf secondary-outputs
 
+# Tool invocations
+on.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+	@echo 'Building target: $@'
+	@echo 'Invoking: AVR C Linker'
+	avr-gcc -Wl,-Map,on.map -mmcu=atmega32 -o "on.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	@echo 'Finished building target: $@'
+	@echo ' '
 
+on.lss: on.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+	@echo 'Invoking: AVR Create Extended Listing'
+	-avr-objdump -h -S on.elf  >"on.lss"
+	@echo 'Finished building: $@'
+	@echo ' '
 
-
+sizedummy: on.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+	@echo 'Invoking: Print Size'
+	-avr-size --format=avr --mcu=atmega32 on.elf
+	@echo 'Finished building: $@'
+	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
-	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "On-demand Traffic light control.elf" "On-demand Traffic light control.a" "On-demand Traffic light control.hex" "On-demand Traffic light control.lss" "On-demand Traffic light control.eep" "On-demand Traffic light control.map" "On-demand Traffic light control.srec" "On-demand Traffic light control.usersignatures"
-	
+	-$(RM) $(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) on.elf
+	-@echo ' '
+
+secondary-outputs: $(LSS) $(SIZEDUMMY)
+
+.PHONY: all clean dependents main-build
+
+-include ../makefile.targets
